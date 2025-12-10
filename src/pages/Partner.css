@@ -3,6 +3,14 @@
   background: var(--bg-dark);
 }
 
+.partner-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .partner-hero {
   background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #0066ff 100%);
   color: var(--white);
@@ -82,15 +90,23 @@
   filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.5));
 }
 
+.benefit-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .benefit-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--text-dark);
+  word-wrap: break-word;
 }
 
 .benefit-card p {
   color: var(--text-light);
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .how-it-works {
@@ -136,15 +152,23 @@
   box-shadow: var(--shadow-primary);
 }
 
+.step {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .step h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: var(--text-dark);
+  word-wrap: break-word;
 }
 
 .step p {
   color: var(--text-light);
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .partner-form-section {
@@ -160,6 +184,8 @@
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   border: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-container h2 {
@@ -167,6 +193,7 @@
   margin-bottom: 1rem;
   color: var(--text-dark);
   text-align: center;
+  word-wrap: break-word;
 }
 
 .form-intro {
@@ -174,6 +201,8 @@
   color: var(--text-light);
   margin-bottom: 2rem;
   font-size: 1.1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .partner-form {
@@ -199,6 +228,11 @@
   color: var(--text-dark);
 }
 
+.form-group {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -210,6 +244,8 @@
   font-family: inherit;
   color: var(--text-dark);
   transition: border-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -305,20 +341,47 @@
   border: 1px solid var(--border-color);
 }
 
+.faq-item {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .faq-item h3 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
   color: var(--text-dark);
+  word-wrap: break-word;
 }
 
 .faq-item p {
   color: var(--text-light);
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 968px) {
+  .partner-page .container {
+    padding: 0 1.5rem;
+  }
+
+  .partner-hero {
+    padding: 3rem 1.5rem;
+  }
+
   .partner-hero h1 {
     font-size: 2rem;
+  }
+
+  .partner-hero p {
+    font-size: 1.1rem;
+  }
+
+  .partner-benefits,
+  .how-it-works,
+  .partner-form-section,
+  .partner-faq {
+    padding: 3rem 1.5rem;
   }
 
   .partner-benefits h2,
@@ -332,6 +395,7 @@
   .steps,
   .faq-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .form-container {
@@ -344,8 +408,24 @@
 }
 
 @media (max-width: 768px) {
+  .partner-page .container {
+    padding: 0 1rem;
+  }
+
   .partner-hero {
     padding: 3rem 1rem;
+  }
+
+  .partner-hero .container {
+    padding: 0 1rem;
+  }
+
+  .partner-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .partner-hero p {
+    font-size: 1rem;
   }
 
   .partner-benefits,
@@ -353,6 +433,248 @@
   .partner-form-section,
   .partner-faq {
     padding: 2rem 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .partner-benefits h2,
+  .how-it-works h2,
+  .form-container h2,
+  .partner-faq h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .benefits-grid,
+  .steps,
+  .faq-grid {
+    gap: 1.25rem;
+  }
+
+  .benefit-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .benefit-icon {
+    font-size: 3rem;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .step {
+    padding: 1.5rem;
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .step h3 {
+    font-size: 1.3rem;
+  }
+
+  .form-container {
+    padding: 2rem 1rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.75rem;
+  }
+
+  .form-intro {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .form-row {
+    gap: 1rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .faq-item {
+    padding: 1.5rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .faq-item p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-page .container {
+    padding: 0 0.75rem;
+  }
+
+  .partner-hero {
+    padding: 2rem 0.75rem;
+  }
+
+  .partner-hero .container {
+    padding: 0 0.75rem;
+  }
+
+  .partner-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .partner-hero p {
+    font-size: 0.95rem;
+  }
+
+  .partner-benefits,
+  .how-it-works,
+  .partner-form-section,
+  .partner-faq {
+    padding: 1.5rem 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .partner-benefits h2,
+  .how-it-works h2,
+  .form-container h2,
+  .partner-faq h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefits-grid,
+  .steps,
+  .faq-grid {
+    gap: 1rem;
+  }
+
+  .benefit-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .benefit-card p {
+    font-size: 0.9rem;
+  }
+
+  .step {
+    padding: 1.25rem;
+  }
+
+  .step-number {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .step h3 {
+    font-size: 1.2rem;
+  }
+
+  .step p {
+    font-size: 0.9rem;
+  }
+
+  .form-container {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-intro {
+    font-size: 0.95rem;
+    padding: 0;
+  }
+
+  .form-row {
+    gap: 0.75rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 0.625rem 0.75rem;
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+  }
+
+  .submit-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .faq-item {
+    padding: 1.25rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .faq-item p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .partner-hero h1 {
+    font-size: 1.3rem;
+  }
+
+  .partner-benefits h2,
+  .how-it-works h2,
+  .form-container h2,
+  .partner-faq h2 {
+    font-size: 1.3rem;
+  }
+
+  .benefit-card {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .benefit-icon {
+    font-size: 2.25rem;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .form-container {
+    padding: 1.25rem 0.5rem;
   }
 }
 

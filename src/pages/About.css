@@ -3,6 +3,14 @@
   background: var(--bg-dark);
 }
 
+.about-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .about-hero {
   background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #0066ff 100%);
   color: var(--white);
@@ -61,6 +69,12 @@
   margin-bottom: 2rem;
   color: var(--text-dark);
   text-align: center;
+  word-wrap: break-word;
+}
+
+.about-content {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-content p {
@@ -69,6 +83,8 @@
   color: var(--text-light);
   margin-bottom: 1.5rem;
   text-align: justify;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .values-section {
@@ -256,6 +272,8 @@
   border-radius: 20px;
   margin: 4rem 0;
   border: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-cta h2 {
@@ -308,8 +326,24 @@
 }
 
 @media (max-width: 968px) {
+  .about-page .container {
+    padding: 0 1.5rem;
+  }
+
+  .about-hero {
+    padding: 3rem 1.5rem;
+  }
+
   .about-hero h1 {
     font-size: 2rem;
+  }
+
+  .about-hero p {
+    font-size: 1.1rem;
+  }
+
+  .about-section {
+    padding: 3rem 1.5rem;
   }
 
   .about-content h2,
@@ -317,6 +351,12 @@
   .stats-section h2,
   .team-section h2 {
     font-size: 2rem;
+  }
+
+  .values-section,
+  .stats-section,
+  .team-section {
+    padding: 3rem 1.5rem;
   }
 
   .values-grid,
@@ -330,8 +370,127 @@
 }
 
 @media (max-width: 768px) {
+  .about-page .container {
+    padding: 0 1rem;
+  }
+
+  .about-hero {
+    padding: 3rem 1rem;
+  }
+
+  .about-hero .container {
+    padding: 0 1rem;
+  }
+
+  .about-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .about-hero p {
+    font-size: 1rem;
+  }
+
   .about-section {
     padding: 2rem 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .about-content h2 {
+    font-size: 1.75rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .values-section {
+    padding: 3rem 1rem;
+  }
+
+  .values-section h2 {
+    font-size: 2rem;
+  }
+
+  .value-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .value-icon {
+    font-size: 3rem;
+  }
+
+  .stats-section {
+    padding: 3rem 1rem;
+  }
+
+  .stats-section h2 {
+    font-size: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .team-section {
+    padding: 3rem 1rem;
+  }
+
+  .team-section h2 {
+    font-size: 2rem;
+  }
+
+  .team-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .about-cta {
+    padding: 2.5rem 1rem;
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  .about-cta h2 {
+    font-size: 1.75rem;
+    word-wrap: break-word;
+  }
+
+  .about-cta p {
+    font-size: 1rem;
+    word-wrap: break-word;
+    padding: 0 0.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-content h2 {
+    font-size: 1.5rem;
   }
 
   .stats-grid {
@@ -339,7 +498,57 @@
   }
 
   .stat-number {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .about-cta {
+    padding: 2rem 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .about-cta h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-cta p {
+    font-size: 0.95rem;
+    padding: 0;
+  }
+
+  .btn {
+    max-width: 100%;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page .container {
+    padding: 0 0.75rem;
+  }
+
+  .about-hero {
+    padding: 2rem 0.75rem;
+  }
+
+  .about-hero .container {
+    padding: 0 0.75rem;
+  }
+
+  .about-section {
+    padding: 1.5rem 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .values-section,
+  .stats-section,
+  .team-section {
+    padding: 2rem 0.75rem;
+  }
+
+  .about-cta {
+    padding: 2rem 0.75rem;
+    margin: 1.5rem 0;
   }
 }
 

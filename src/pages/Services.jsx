@@ -153,8 +153,8 @@ const Services = () => {
         </section>
 
         {/* Freight Services */}
-        <section id="freight" className="service-section">
-          <div className="service-content">
+        <section id="freight" className="service-section alt">
+          <div className="service-content reverse">
             <div className="service-text">
               <FaTruck className="service-badge" />
               <h2>Freight Services</h2>
