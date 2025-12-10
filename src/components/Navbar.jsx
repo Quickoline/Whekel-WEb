@@ -61,7 +61,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <a href="#download" className="download-btn" onClick={closeMenu}>
+              <a 
+                href="https://drive.google.com/file/d/1WHGIzd9JiU21KR6JKrbXnLFWHN08XpDA/view?usp=drivesdk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="download-btn" 
+                onClick={closeMenu}
+              >
                 Download App
               </a>
             </li>

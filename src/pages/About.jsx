@@ -140,7 +140,12 @@ const About = () => {
           <h2>Join the Whekel Community</h2>
           <p>Be part of the transportation revolution. Download the app and start your journey with us today!</p>
           <div className="cta-buttons">
-            <a href="#download" className="btn btn-primary">
+            <a 
+              href="https://drive.google.com/file/d/1WHGIzd9JiU21KR6JKrbXnLFWHN08XpDA/view?usp=drivesdk" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
               Download App
             </a>
             <Link to="/services" className="btn btn-secondary">

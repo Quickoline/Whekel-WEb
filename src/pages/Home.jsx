@@ -21,7 +21,12 @@ const Home = () => {
             require freight services, or need professional help, we facilitate the connection - you handle payment directly with your service provider.
           </p>
           <div className="hero-buttons">
-            <a href="#download" className="btn btn-primary">
+            <a 
+              href="https://drive.google.com/file/d/1WHGIzd9JiU21KR6JKrbXnLFWHN08XpDA/view?usp=drivesdk" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
               Download App
             </a>
             <Link to="/services" className="btn btn-secondary">
