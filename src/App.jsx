@@ -6,6 +6,7 @@ import Partner from './pages/Partner'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsConditions from './pages/TermsConditions'
 import Admin from './pages/Admin'
+import ResetPassword from './pages/ResetPassword'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/partner" element={<Partner />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
       {!isAdminPage && <Footer />}
