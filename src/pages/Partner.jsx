@@ -1,6 +1,9 @@
 import { useState } from 'react'
-import { FaBriefcase, FaDollarSign, FaGift, FaChartLine, FaTools, FaHandshake } from 'react-icons/fa'
+import { FaBriefcase, FaDollarSign, FaGift, FaChartLine, FaTools, FaHandshake, FaSpinner, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa'
 import './Partner.css'
+
+// API Base URL - Update this to match your backend
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.whekel.com'
 
 const Partner = () => {
   const [formData, setFormData] = useState({
@@ -10,31 +13,79 @@ const Partner = () => {
     businessName: '',
     serviceType: '',
     location: '',
-    message: ''
+    additionalInfo: ''
   })
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+    // Clear errors when user starts typing
+    if (error) setError('')
+    if (success) setSuccess('')
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your interest! We will contact you soon.')
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      businessName: '',
-      serviceType: '',
-      location: '',
-      message: ''
-    })
+    setError('')
+    setSuccess('')
+    setLoading(true)
+
+    try {
+      // Prepare request body - only include fields that have values
+      const requestBody = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        serviceType: formData.serviceType,
+        location: formData.location.trim()
+      }
+
+      // Add optional fields only if they have values
+      if (formData.businessName.trim()) {
+        requestBody.businessName = formData.businessName.trim()
+      }
+      if (formData.additionalInfo.trim()) {
+        requestBody.additionalInfo = formData.additionalInfo.trim()
+      }
+
+      const response = await fetch(`${API_BASE_URL}/api/partner/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setSuccess(data.message || 'Partner registration submitted successfully. We will review your application and get back to you within 24-48 hours.')
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          businessName: '',
+          serviceType: '',
+          location: '',
+          additionalInfo: ''
+        })
+        // Scroll to top to show success message
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        setError(data.message || 'Failed to submit registration. Please try again.')
+      }
+    } catch (err) {
+      console.error('Registration error:', err)
+      setError('Network error. Please check your connection and try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -185,11 +236,12 @@ const Partner = () => {
                     required
                   >
                     <option value="">Select service type</option>
-                    <option value="ride">Ride Services (Bike, Taxi, Bus, Van)</option>
-                    <option value="parcel">Parcel Delivery</option>
-                    <option value="freight">Freight Services</option>
-                    <option value="professional">Professional Services</option>
-                    <option value="multiple">Multiple Services</option>
+                    <option value="Ride">Ride</option>
+                    <option value="Parcel">Parcel</option>
+                    <option value="Freight">Freight</option>
+                    <option value="Vendor">Vendor</option>
+                    <option value="All">All</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <div className="form-group">
@@ -207,19 +259,40 @@ const Partner = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Additional Information</label>
+                <label htmlFor="additionalInfo">Additional Information</label>
                 <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
+                  id="additionalInfo"
+                  name="additionalInfo"
+                  value={formData.additionalInfo}
                   onChange={handleChange}
                   rows="5"
                   placeholder="Tell us about your business, experience, or any questions you have..."
                 />
               </div>
 
-              <button type="submit" className="submit-btn">
-                Submit Application
+              {error && (
+                <div className="alert alert-error">
+                  <FaExclamationTriangle />
+                  {error}
+                </div>
+              )}
+
+              {success && (
+                <div className="alert alert-success">
+                  <FaCheckCircle />
+                  {success}
+                </div>
+              )}
+
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? (
+                  <>
+                    <FaSpinner className="spinner" />
+                    Submitting...
+                  </>
+                ) : (
+                  'Submit Application'
+                )}
               </button>
             </form>
           </div>

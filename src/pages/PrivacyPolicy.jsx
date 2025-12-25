@@ -135,7 +135,7 @@ const PrivacyPolicy = () => {
               If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:
             </p>
             <div className="contact-info">
-              <p><strong>Email:</strong> privacy@whekel.com</p>
+              <p><strong>Email:</strong> contact@whekel.com</p>
               <p><strong>Phone:</strong> +1 (555) 123-4567</p>
               <p><strong>Address:</strong> 123 Transport St, City, State</p>
             </div>

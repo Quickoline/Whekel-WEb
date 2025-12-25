@@ -4,7 +4,7 @@ import { FaLock, FaCheckCircle, FaExclamationTriangle, FaSpinner } from 'react-i
 import './ResetPassword.css'
 
 // Reuse the same pattern as Admin page for API base URL
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://ec2-3-84-40-197.compute-1.amazonaws.com:3001'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.whekel.com'
 
 const ResetPassword = () => {
   const [searchParams] = useSearchParams()

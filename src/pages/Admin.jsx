@@ -3,7 +3,7 @@ import { FaLock, FaUser, FaCheck, FaTimes, FaSpinner, FaSignOutAlt, FaUsers, FaI
 import './Admin.css'
 
 // API Base URL - Update this to match your backend
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://ec2-3-84-40-197.compute-1.amazonaws.com:3001'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.whekel.com'
 
 const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)

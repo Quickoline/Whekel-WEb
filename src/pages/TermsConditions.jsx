@@ -50,7 +50,7 @@ const TermsConditions = () => {
 
           <section className="legal-section">
             <h2>Important: Dispute Responsibility</h2>
-            <div className="warning-box" style={{borderLeft: '6px solid #dc2626', background: 'linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)'}}>
+            <div className="warning-box">
               <h3>⚠️ Service Providers/Admins Are Responsible for All Disputes</h3>
               <p style={{fontSize: '1.1rem', fontWeight: '600', marginBottom: '1rem'}}>
                 <strong>As a user, please understand that:</strong>
@@ -160,7 +160,7 @@ const TermsConditions = () => {
 
           <section className="legal-section">
             <h2>Dispute Resolution</h2>
-            <div className="warning-box" style={{borderLeft: '6px solid #dc2626', background: 'linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)'}}>
+            <div className="warning-box">
               <h3>⚠️ Important: Contact Service Provider for All Disputes</h3>
               <p style={{fontSize: '1.1rem', fontWeight: '600', marginBottom: '1rem'}}>
                 <strong>If you have ANY disputes, you must contact the service provider (admin) directly.</strong>
@@ -267,7 +267,7 @@ const TermsConditions = () => {
               If you have any questions about these Terms & Conditions, please contact us at:
             </p>
             <div className="contact-info">
-              <p><strong>Email:</strong> legal@whekel.com</p>
+              <p><strong>Email:</strong> contact@whekel.com</p>
               <p><strong>Phone:</strong> +1 (555) 123-4567</p>
               <p><strong>Address:</strong> 123 Transport St, City, State</p>
             </div>

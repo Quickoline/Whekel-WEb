@@ -79,7 +79,7 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Contact</h4>
           <ul>
-            <li><FaEnvelope /> support@whekel.com</li>
+            <li><FaEnvelope /> contact@whekel.com</li>
           </ul>
         </div>
       </div>
