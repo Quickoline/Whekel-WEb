@@ -29,28 +29,32 @@ const AdminProfile = () => {
         while (!foundAdmin && page <= maxPages) {
           const params = new URLSearchParams({
             page: page.toString(),
-            limit: '50',
-            // Add timestamp to prevent caching and get fresh signed URLs
-            _t: Date.now().toString()
+            limit: '50'
           })
           
-          const response = await fetch(`${API_BASE_URL}/admin/auth/admins/public?${params}`, {
-            cache: 'no-store',
+          // Add timestamp to prevent caching and get fresh signed URLs
+          params.append('_t', Date.now().toString())
+          
+          const response = await fetch(`${API_BASE_URL}/admin/auth/admins/public?${params.toString()}`, {
+            method: 'GET',
             headers: {
-              'Cache-Control': 'no-cache, no-store, must-revalidate',
-              'Pragma': 'no-cache',
-              'Expires': '0'
+              'Content-Type': 'application/json'
             }
           })
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+          }
+          
           const data = await response.json()
           
-          if (response.ok && data.success) {
+          if (data.success) {
             // Try to find by _id first
-            foundAdmin = data.data.admins.find(a => a._id === id)
+            foundAdmin = data.data?.admins?.find(a => a._id === id)
             
             // If not found, try by employeeId
             if (!foundAdmin) {
-              foundAdmin = data.data.admins.find(a => a.employeeId === id)
+              foundAdmin = data.data?.admins?.find(a => a.employeeId === id)
             }
             
             if (foundAdmin) {
@@ -59,7 +63,7 @@ const AdminProfile = () => {
             }
             
             // If no more pages, stop searching
-            if (!data.data.pagination?.hasNextPage) {
+            if (!data.data?.pagination?.hasNextPage) {
               break
             }
             
@@ -74,7 +78,7 @@ const AdminProfile = () => {
         }
       } catch (err) {
         console.error('Fetch error:', err)
-        setError('Network error. Please check your connection and try again.')
+        setError(err.message || 'Network error. Please check your connection and try again.')
       } finally {
         setLoading(false)
       }
@@ -82,19 +86,6 @@ const AdminProfile = () => {
 
     if (id) {
       fetchAdmin()
-    }
-
-    // Refresh data when page becomes visible (user switches back to tab)
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible' && id) {
-        fetchAdmin()
-      }
-    }
-
-    document.addEventListener('visibilitychange', handleVisibilityChange)
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange)
     }
   }, [id])
 

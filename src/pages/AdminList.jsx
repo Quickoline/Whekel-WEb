@@ -36,33 +36,37 @@ const AdminList = () => {
         page: page.toString(),
         limit: limit.toString(),
         sortBy,
-        sortOrder,
-        // Add timestamp to prevent caching and get fresh signed URLs
-        _t: Date.now().toString()
+        sortOrder
       })
       
       if (category) params.append('category', category)
       if (search) params.append('search', search)
       
-      const response = await fetch(`${API_BASE_URL}/admin/auth/admins/public?${params}`, {
-        cache: 'no-store',
+      // Add timestamp to prevent caching and get fresh signed URLs
+      params.append('_t', Date.now().toString())
+      
+      const response = await fetch(`${API_BASE_URL}/admin/auth/admins/public?${params.toString()}`, {
+        method: 'GET',
         headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
+          'Content-Type': 'application/json'
         }
       })
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
       const data = await response.json()
       
-      if (response.ok && data.success) {
-        setAdmins(data.data.admins || [])
-        setPagination(data.data.pagination || {})
+      if (data.success) {
+        setAdmins(data.data?.admins || [])
+        setPagination(data.data?.pagination || {})
       } else {
         setError(data.message || 'Failed to fetch admins')
       }
     } catch (err) {
       console.error('Fetch error:', err)
-      setError('Network error. Please check your connection and try again.')
+      setError(err.message || 'Network error. Please check your connection and try again.')
     } finally {
       setLoading(false)
     }
@@ -70,21 +74,6 @@ const AdminList = () => {
 
   useEffect(() => {
     fetchAdmins()
-  }, [page, category, sortBy, sortOrder, search])
-
-  // Refresh data when page becomes visible to get fresh signed URLs
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        fetchAdmins()
-      }
-    }
-
-    document.addEventListener('visibilitychange', handleVisibilityChange)
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange)
-    }
   }, [page, category, sortBy, sortOrder, search])
 
   const handleCategoryChange = (e) => {
