@@ -7,6 +7,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsConditions from './pages/TermsConditions'
 import Admin from './pages/Admin'
 import ResetPassword from './pages/ResetPassword'
+import AdminList from './pages/AdminList'
+import AdminProfile from './pages/AdminProfile'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
@@ -26,6 +28,8 @@ function App() {
         <Route path="/terms-conditions" element={<TermsConditions />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admins" element={<AdminList />} />
+        <Route path="/admins/:id" element={<AdminProfile />} />
       </Routes>
       {!isAdminPage && <Footer />}
     </div>

@@ -6,23 +6,28 @@
 
 :root {
   --primary-color: #00d4ff;
+  --primary: #00d4ff;
   --primary-dark: #00a8cc;
   --primary-light: #33ddff;
   --secondary-color: #00ff88;
   --accent-color: #00d4ff;
   --accent-orange: #ffa726;
   --text-dark: #f0f4f8;
+  --text-primary: #f0f4f8;
   --text-light: #b0bec5;
+  --text-secondary: #b0bec5;
+  --text-tertiary: #8a9ba8;
   --bg-light: #1a2332;
   --bg-dark: #0d1117;
   --bg-card: #161b22;
   --white: #ffffff;
+  --border: #2d3748;
+  --border-color: #2d3748;
+  --hover-bg: #2d3748;
   --gradient: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #0066ff 100%);
   --gradient-hero: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
   --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
   --gradient-secondary: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
-  --border-color: #2d3748;
-  --hover-bg: #2d3748;
   --shadow-primary: 0 10px 40px rgba(0, 212, 255, 0.3);
   --shadow-secondary: 0 10px 40px rgba(0, 255, 136, 0.3);
 }

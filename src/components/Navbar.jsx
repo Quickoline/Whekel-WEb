@@ -61,6 +61,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
+              <Link 
+                to="/admins" 
+                className={location.pathname.startsWith('/admins') ? 'active' : ''}
+                onClick={closeMenu}
+              >
+                Service Partners
+              </Link>
+            </li>
+            <li>
               <a 
                 href="https://drive.google.com/file/d/1WHGIzd9JiU21KR6JKrbXnLFWHN08XpDA/view?usp=drivesdk" 
                 target="_blank" 
